@@ -5,16 +5,15 @@ class Artist
 
   def initialize(name)
     @name = name
-    @songs = []
     @@all << self
   end
 
   def add_song(song)
     song.artist = self
-    @songs << song
   end
 
   def songs
+    # Remember select returns an array so no need to initialize with an empty songs array
     Song.all.select { |song| song.artist == self}
   end
 
